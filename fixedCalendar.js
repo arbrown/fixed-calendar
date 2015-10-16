@@ -19,9 +19,8 @@ Date.prototype.toFixedDate = function(){
     "July", "August", "September",
     "October", "November", "December"
   ]
-
   var days = this.getDayOfYear();
-  var month = Math.floor((days-1)/ 28);
+  var month = Math.floor((days-1) / 28);
   var date = days%28;
   if (date == 0) {
     date = 28;
@@ -33,13 +32,20 @@ Date.prototype.toFixedDate = function(){
       return {monthName: "Leap Day", date: 0, isSpecial: true}
     }
     else if (days > 169) {
+      //subtract leap day
       date = (days-1) % 28;
+      if (date == 0) {
+        date = 28;
+      }
+      month = Math.floor((days-2) / 28);
+    }
+    if (days == 366){
+      return {monthName: "Year Day", date: 0, isSpecial: true}
     }
   }
-  if (days > 364){
+  else if (days == 365){
+    //day 365 is "year day"
     return {monthName: "Year Day", date: 0, isSpecial: true}
   }
-  else {
-    return {monthName: months[month], date: date};
-  }
+  return {monthName: months[month], date: date};
 }
