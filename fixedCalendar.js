@@ -19,6 +19,8 @@ Date.prototype.toFixedDate = function(){
     "July", "August", "September",
     "October", "November", "December"
   ]
+  var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday",
+              "Thursday", "Friday", "Saturday"]
   var fd = {year: this.getFullYear()}
   var days = this.getDayOfYear();
   var month = Math.floor((days-1) / 28);
@@ -26,6 +28,7 @@ Date.prototype.toFixedDate = function(){
   if (date == 0) {
     date = 28;
   }
+  fd.day = daysOfWeek[(date-1)%7];
   var leapYear = isLeapYear(this.getFullYear());
   if (leapYear){
     if (days == 169){
@@ -63,13 +66,11 @@ Date.prototype.toFixedDate = function(){
 }
 
 Date.prototype.toFixedDateString = function() {
-var days = ["Sunday", "Monday", "Tuesday", "Wednesday",
-            "Thursday", "Friday", "Saturday"]
   var fd = this.toFixedDate();
   if (fd.isSpecial){
     return fd.monthName + " " + fd.year;
   }
-  return days[(fd.date-1) % 7] + ", " + fd.monthName + " " + fd.date
+  return fd.day + ", " + fd.monthName + " " + fd.date
           + ", " + fd.year
 }
 
