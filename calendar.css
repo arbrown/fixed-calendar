@@ -39,6 +39,7 @@ time.icon *
   font-weight: bold;
   font-style: normal;
   text-align: center;
+  line-height: normal;
 }
 
 time.icon strong
