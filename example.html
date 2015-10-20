@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Fixed Calendar Example</title>
-  <script src="fixedCalendar.js"></script>
-  <link rel="stylesheet" href="calendar.css">
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-</head>
-<body>
-  <time class="icon" id="calendar">
-  </time>
-</body>
-<script>
-var fd = new Date().toFixedDate();
-$('time#calendar').append('<em>'+fd.day+'</em>');
-$('time#calendar').append('<strong>'+fd.monthName+'</strong>');
-$('time#calendar').append('<span>'+fd.date+'</span>');
-</script>
+  <head>
+    <meta charset="utf-8">
+    <title>Fixed Calendar Example</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="fixedCalendar.js"></script>
+    <script src="blogPost.js"></script>
+    <link rel="stylesheet" href="calendar.css">
+  </head>
+  <body>
+    <time class="icon" id="calendar">
+    </time>
+  </body>
 </html>
