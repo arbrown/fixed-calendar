@@ -7,6 +7,7 @@ Date.prototype.getDayOfYear = function() {
   return Math.ceil((date-janFirst) / dayMs);
 };
 
+//Leap year every 4 years... except when it isn't... except when it is
 function isLeapYear(year){
   return year%4==0&&(year%100!=0||year%400==0);
 }
